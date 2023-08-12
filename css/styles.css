@@ -188,3 +188,17 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.datos{
+  padding: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#boton{
+  padding: 6px;
+  background-color: #0087F7;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+}
