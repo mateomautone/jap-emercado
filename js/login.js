@@ -1,7 +1,12 @@
 function check(){
     if(document.getElementById("name").value !== "" && document.getElementById("pass").value !== ""){
-        location.replace("file:///C:/Users/aleja/OneDrive/Documentos/GitHub/jap-emercado/index.html");
+        location.replace("index.html");
+    }
+    else{
+        alert('Faltan datos');
     }
 }
 
-document.getElementById("boton").onclick = function() {check()};
+document.getElementById("boton").addEventListener('click', () =>{
+    check();
+});
