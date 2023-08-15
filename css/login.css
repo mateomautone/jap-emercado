@@ -1,0 +1,22 @@
+body {
+    background-image: url(/img/fondo.png);
+    background-repeat: repeat;
+}
+
+input {
+    background-color: white;
+}
+
+button:hover{
+    transition: 150ms all;
+    transform: scale(1.1);
+}
+
+#h1-login{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+image{
+    filter:opacity(60%)
+}
