@@ -7,6 +7,11 @@ input {
     background-color: white;
 }
 
+button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 button:hover{
     transition: 150ms all;
     transform: scale(1.1);
@@ -19,4 +24,15 @@ button:hover{
 
 image{
     filter:opacity(60%)
+}
+
+a {
+    color: darkblue;
+    font-family: arial;
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: white;
 }

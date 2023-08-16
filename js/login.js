@@ -8,5 +8,5 @@ function check(){
 }
 
 document.getElementById("boton").addEventListener('click', () =>{
-    check();
+        check();
 });
