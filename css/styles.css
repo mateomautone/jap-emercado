@@ -229,7 +229,7 @@ a.custom-card:hover {
   padding: 10px;
 }
 
-.row{
+.row-p{
 border-style: solid;
 border-radius: 10px;
 border-color: gray;
@@ -271,7 +271,7 @@ padding: 10px;
 }
 
 
-.row:hover{
+.row-p:hover{
   border-color: rgb(236, 108, 33);
   padding: 3px;
   border-width: 3px;

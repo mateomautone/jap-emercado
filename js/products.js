@@ -10,7 +10,7 @@ async function showProduct() {
           let product = datos.products[i];
 
           htmlContentToAppend +=`
-              <div class="row">
+              <div class="row-p">
                   <div class="col-md-3">
                       <img src="${product.image}" alt="${product.description}" class="img-thumbnail"></img>
                   </div> 
