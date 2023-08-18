@@ -215,6 +215,10 @@ a.custom-card:hover {
   float: left;
 }
 
+.img-thumbnail{
+  float: left;
+}
+
 .h2-multi{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
@@ -227,14 +231,6 @@ a.custom-card:hover {
   font-size: 30px;
   text-align: center;
   padding: 10px;
-}
-
-.row-p{
-border-style: solid;
-border-radius: 10px;
-border-color: gray;
-border-width: 1px;
-padding: 10px;
 }
 
 .col-md-5{

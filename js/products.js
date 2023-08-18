@@ -1,5 +1,5 @@
 async function showProduct() {
-  const url = 'producto.json';
+  const url = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
 
   try {
       const response = await fetch(url);
@@ -10,6 +10,7 @@ async function showProduct() {
           let product = datos.products[i];
 
           htmlContentToAppend +=`
+          <div class="list-group-item list-group-item-action cursor-active">
               <div class="row-p">
                   <div class="col-md-3">
                       <img src="${product.image}" alt="${product.description}" class="img-thumbnail"></img>
@@ -20,7 +21,7 @@ async function showProduct() {
                       <p>${product.description}</p>
                   </div>
               </div>
-         ` ;
+              </div>  ` ;
       }
       document.getElementById("prod-list").innerHTML = htmlContentToAppend;
   } catch (error) {
