@@ -280,4 +280,12 @@ h1 {
   letter-spacing: 20px;
   font-weight: bold;
 }
-  
+
+#descripcion {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  font-size: 25px;
+  font-family: sans-serif;
+  background-color: rgb(236, 108, 33);
+}
