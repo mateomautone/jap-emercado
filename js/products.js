@@ -11,7 +11,7 @@ async function showProduct() {
 
           htmlContentToAppend +=`
           <div class="list-group-item list-group-item-action cursor-active">
-              <div class="row-p">
+              <div class="row">
                   <div class="col-md-3">
                       <img src="${product.image}" alt="${product.description}" class="img-thumbnail"></img>
                   </div> 
