@@ -269,3 +269,19 @@ padding: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 10px;
 }
+
+
+.row:hover{
+  border-color: rgb(236, 108, 33);
+  padding: 3px;
+  border-width: 3px;
+}
+
+h1 {
+  padding: 30px;
+  font-size: 70px;
+  font-family:arial;
+  letter-spacing: 20px;
+  font-weight: bold;
+}
+  
