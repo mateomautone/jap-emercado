@@ -16,7 +16,7 @@ async function showProduct() {
                   </div> 
                   <div class="col-md-5">
                        <h2>${product.name} - ${product.currency} ${product.cost}</h2>
-                       <small>${product.soldCount} artículos</small>
+                       <small>${product.soldCount} artículos vendidos</small>
                       <p>${product.description}</p>
                   </div>
               </div>

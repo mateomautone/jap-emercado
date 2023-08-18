@@ -223,3 +223,15 @@ a.custom-card:hover {
   text-align: center;
   padding: 10px;
 }
+
+.row{
+border-style: solid;
+border-radius: 10px;
+border-color: gray;
+border-width: 1px;
+padding: 10px;
+}
+
+.col-md-5{
+  width: 50%;
+}
