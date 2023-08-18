@@ -267,7 +267,7 @@ a.custom-card:hover {
 }
 
 
-.row-p:hover{
+.list-group-item:hover{
   border-color: rgb(236, 108, 33);
   padding: 3px;
   border-width: 3px;
