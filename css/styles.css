@@ -235,3 +235,9 @@ padding: 10px;
 .col-md-5{
   width: 50%;
 }
+
+.row:hover{
+  border-color: rgb(236, 108, 33);
+  padding: 3px;
+  border-width: 3px;
+}
