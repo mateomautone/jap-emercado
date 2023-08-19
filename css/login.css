@@ -1,0 +1,52 @@
+body {
+    background-image: url(/img/fondo.png);
+    background-repeat: repeat;
+}
+
+  .datos{
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+  }
+  
+  #boton{
+    padding: 10px;
+    background-color: #ff4901;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+  }
+
+  #boton:hover{
+    transition: 150ms all;
+    transform: scale(1.1);
+}
+  
+  #h1-login{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 35px;
+    padding: 15px;
+    text-align: center;
+}
+  
+  #check{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+  }
+
+a {
+    color: darkblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: white;
+}

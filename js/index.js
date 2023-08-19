@@ -12,3 +12,12 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function (){
+    let user = localStorage.getItem("name");
+
+    if (user === "" || user === null) {
+        location.href = "login.html";
+    }
+});
