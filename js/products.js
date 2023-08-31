@@ -28,7 +28,6 @@ async function showProduct() {
       console.error('Error:', error);
   }
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   showProduct(); // Invoca la funcion
 });
