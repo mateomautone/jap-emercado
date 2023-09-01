@@ -7,10 +7,10 @@ let minPrice = undefined;
 let maxPrice = undefined;
 let productsCopy = [];
 
-function showProduct(){
+function showProduct(array){
     let htmlContentToAppend = "";
-    for (let i = 0; i < productsArray.products.length; i++) {
-        let product = productsArray.products[i];
+    for (let i = 0; i < array.length; i++) {
+        let product = array[i];
         htmlContentToAppend +=`
         <div id="id" class="list-group-item list-group-item-action cursor-active ho-ver">
             <div class="row">
@@ -28,10 +28,16 @@ function showProduct(){
     document.getElementById("prod-list").innerHTML = htmlContentToAppend;
 }
 
-function sortAsc(array){
-  array.sort((a, b) => a.cost - b.cost);
-  productsArray.products = array;
-  showProduct();
+function searchProduct(){
+  let input = document.getElementById("barra").value;
+  input = input.toLowerCase();
+  let result = [];
+  for(let i = 0; i < productsArray.products.length; i++){
+      if(productsArray.products[i].name.toLowerCase().includes(input) || productsArray.products[i].description.toLowerCase().includes(input)){
+          result.push(productsArray.products[i]);
+      }
+  }
+  showProduct(result);
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -51,23 +57,23 @@ document.addEventListener("DOMContentLoaded", ()=>{
     getJSONData(final_url).then(function(resultObj){
         if (resultObj.status === "ok"){
             productsArray = resultObj.data;
-            showProduct();
+            showProduct(productsArray.products);
         }
     });
 
     document.getElementById("sortAsc").addEventListener("click", ()=>{
       productsArray.products.sort((a, b) => a.cost - b.cost);
-      showProduct();
+      showProduct(productsArray.products);
     });
 
     document.getElementById("sortDesc").addEventListener("click", ()=>{
       productsArray.products.sort((a, b) => b.cost - a.cost);
-      showProduct();
+      showProduct(productsArray.products);
     });
 
     document.getElementById("sortStock").addEventListener("click", ()=>{
       productsArray.products.sort((a, b) => b.soldCount - a.soldCount);
-      showProduct();
+      showProduct(productsArray.products);
     });    
 
     document.getElementById("sort").addEventListener("click", ()=>{
@@ -79,12 +85,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
       else if((maxPrice == undefined || maxPrice == 0) && (minPrice != undefined)){
         productsArray.products.filter(product => product.cost >= parseInt(minPrice));
       }
+      showProduct(productsArray.products);
     });
 
     document.getElementById("clear").addEventListener("click", () => {
       document.getElementById("min-price").value = "";
       document.getElementById("max-price").value = "";
-      showProduct(); 
+      showProduct(productsArray.products); 
+    });
+
+    document.getElementById("barra").addEventListener("input", ()=>{
+      searchProduct();
     });
     
   })

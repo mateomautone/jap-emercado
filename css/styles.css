@@ -219,3 +219,7 @@ h1 {
   font-family: sans-serif;
   background-color: rgb(236, 108, 33);
 }
+
+#barra{
+  width: 50%;
+}
