@@ -28,12 +28,15 @@ function showProduct(array){
 document.addEventListener("DOMContentLoaded", ()=>{
     if(localStorage.getItem("catID") === "101"){
         final_url = autos_url;
+        document.getElementById("titulo").innerHTML = "Autos"
     }
     else if(localStorage.getItem("catID") === "102"){
         final_url = juguetes_url;
+        document.getElementById("titulo").innerHTML = "Juguetes"
     }
     else if(localStorage.getItem("catID") === "103"){
         final_url = muebles_url;
+        document.getElementById("titulo").innerHTML = "Muebles"
     }
 
     getJSONData(final_url).then(function(resultObj){
