@@ -1,11 +1,13 @@
-autos_url = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
-juguetes_url = 'https://japceibal.github.io/emercado-api/cats_products/102.json';
-muebles_url = 'https://japceibal.github.io/emercado-api/cats_products/103.json';
+const autos_url = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
+const juguetes_url = 'https://japceibal.github.io/emercado-api/cats_products/102.json';
+const muebles_url = 'https://japceibal.github.io/emercado-api/cats_products/103.json';
+let final_url = "";
+let productsArray = [];
 
-function showProduct(){
+function showProduct(array){
     let htmlContentToAppend = "";
-    for (let i = 0; i < productsArray.products.length; i++) {
-        let product = productsArray.products[i];
+    for (let i = 0; i < array.products.length; i++) {
+        let product = array.products[i];
         htmlContentToAppend +=`
         <div id="id" class="list-group-item list-group-item-action cursor-active ho-ver">
             <div class="row">
@@ -24,7 +26,6 @@ function showProduct(){
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    let final_url = "";
     if(localStorage.getItem("catID") === "101"){
         final_url = autos_url;
     }
