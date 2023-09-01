@@ -43,6 +43,50 @@
         <h1>PRODUCTOS</h1>
         <p class="lead" id="descripcion">Verás aquí todos los productos de la categoría <label id = "titulo"> Autos </label> </p>
       </div>
+      <div class="container">
+        <div class="row">
+          <div class="col text-end">
+            <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+              <input type="radio" class="btn-check" name="options" id="sortAsc">
+              <label class="btn btn-light" for="sortAsc">Asc</label>
+              <input type="radio" class="btn-check" name="options" id="sortDesc">
+              <label class="btn btn-light" for="sortDesc">Desc</label>
+              <input type="radio" class="btn-check" name="options" id="sortStock">
+              <label class="btn btn-light" for="sortStock"><i class="fas fa-sort-amount-down mr-1"></i></label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+            <div class="row container p-0 m-0">
+              <div class="col">
+                <p class="font-weight-normal text-end my-2">Precio.</p>
+              </div>
+              <div class="col">
+
+               <!--  RANGOS DE PRECIO -->
+
+
+                <input class="form-control" type="number" placeholder="min." id="min-price">
+              </div>
+              <div class="col">
+                <input class="form-control" type="number" placeholder="máx." id="max-price">
+              </div>
+
+              <!-- RANGOS DE PRECIO/ -->
+
+            <!--   FILTRAR Y LIMPIAR -->
+              <div class="col-3 p-0">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-light btn-block" id="sort">Filtrar</button>
+                  <button class="btn btn-link btn-sm" id="clear">Limpiar</button>
+
+             <!--  FILTRAR Y LIMPIAR/ -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       <div class="listado" id="prod-list">
 
       </div>
