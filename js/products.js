@@ -79,13 +79,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("sort").addEventListener("click", ()=>{
       minPrice = parseInt(document.getElementById("min-price").value);
       maxPrice = parseInt(document.getElementById("max-price").value);
-      if((minPrice == undefined || minPrice == 0) && (maxPrice != undefined)){
-        productsArray.products.filter(product => product.cost <= parseInt(maxPrice));
-      }
-      else if((maxPrice == undefined || maxPrice == 0) && (minPrice != undefined)){
-        productsArray.products.filter(product => product.cost >= parseInt(minPrice));
-      }
-      showProduct(productsArray.products);
+      const filteredProducts = productsArray.products.filter(
+        (product) => product.cost >= minPrice && product.cost <= maxPrice
+      );
+      console.log(filteredProducts);
+      showProduct(filteredProducts)
     });
 
     document.getElementById("clear").addEventListener("click", () => {
