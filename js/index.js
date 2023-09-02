@@ -1,4 +1,4 @@
-
+let user = localStorage.getItem("name");
 
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("autos").addEventListener("click", function() {
@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 document.addEventListener('DOMContentLoaded', function (){
-    let user = localStorage.getItem("name");
-
+    let userName = document.getElementById("userName");
+    userName.textContent += user;
     if (user === "" || user === null) {
         location.href = "login.html";
     }
