@@ -1,6 +1,12 @@
 const autos_url = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
 const juguetes_url = 'https://japceibal.github.io/emercado-api/cats_products/102.json';
 const muebles_url = 'https://japceibal.github.io/emercado-api/cats_products/103.json';
+const herramientas_url = 'https://japceibal.github.io/emercado-api/cats_products/104.json';
+const computadoras_url = 'https://japceibal.github.io/emercado-api/cats_products/105.json';
+const vestimenta_url = 'https://japceibal.github.io/emercado-api/cats_products/106.json';
+const electrodomesticos_url = 'https://japceibal.github.io/emercado-api/cats_products/107.json';
+const deporte_url = 'https://japceibal.github.io/emercado-api/cats_products/108.json';
+const celulares_url = 'https://japceibal.github.io/emercado-api/cats_products/109.json';
 let final_url = "";
 let productsArray = [];
 let minPrice = undefined;
@@ -53,6 +59,30 @@ document.addEventListener("DOMContentLoaded", ()=>{
         final_url = muebles_url;
         document.getElementById("titulo").innerHTML = "Muebles";
     }
+    else if(localStorage.getItem("catID") === "104"){
+        final_url = herramientas_url;
+        document.getElementById("titulo").innerHTML = "Herramientas";
+    }
+    else if(localStorage.getItem("catID") === "105"){
+        final_url = computadoras_url;
+        document.getElementById("titulo").innerHTML = "Computadoras";
+    }
+    else if(localStorage.getItem("catID") === "106"){
+        final_url = vestimenta_url;
+        document.getElementById("titulo").innerHTML = "Vestimenta";
+    }
+    else if(localStorage.getItem("catID") === "107"){
+        final_url = electrodomesticos_url;
+        document.getElementById("titulo").innerHTML = "Electrodomésticos";
+    }
+    else if(localStorage.getItem("catID") === "108"){
+        final_url = deporte_url;
+        document.getElementById("titulo").innerHTML = "Deporte";
+    }
+    else if(localStorage.getItem("catID") === "109"){
+        final_url = celulares_url;
+        document.getElementById("titulo").innerHTML = "Celulares";
+    }
 
     getJSONData(final_url).then(function(resultObj){
         if (resultObj.status === "ok"){
@@ -79,11 +109,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("sort").addEventListener("click", ()=>{
       minPrice = parseInt(document.getElementById("min-price").value);
       maxPrice = parseInt(document.getElementById("max-price").value);
-      const filteredProducts = productsArray.products.filter(
-        (product) => product.cost >= minPrice && product.cost <= maxPrice
-      );
-      console.log(filteredProducts);
-      showProduct(filteredProducts)
+      let filteredProducts = productsArray.products.filter((product) => product.cost >= minPrice || product.cost <= maxPrice);
+      showProduct(filteredProducts);
     });
 
     document.getElementById("clear").addEventListener("click", () => {
