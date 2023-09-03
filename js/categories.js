@@ -36,10 +36,18 @@ function sortCategories(criteria, array){
 }
 
 function setCatID(id) {
-    localStorage.setItem("catID", id);
-    window.location = "products.html"
-}
+  
+    for(let i = 0; i < currentCategoriesArray.length; i++){
+        let category = currentCategoriesArray[i];
 
+        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+
+            localStorage.setItem("catID", id);
+            localStorage.setItem("catName", category.name);
+            window.location = "products.html"
+
+}}}
 function showCategoriesList(){
 
     let htmlContentToAppend = "";
