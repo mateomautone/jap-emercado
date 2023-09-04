@@ -13,12 +13,17 @@ let minPrice = undefined;
 let maxPrice = undefined;
 let productsCopy = [];
 
+function redirect(id){
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html";
+}
+
 function showProduct(array){
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
         let product = array[i];
         htmlContentToAppend +=`
-        <div id="id" class="list-group-item list-group-item-action cursor-active ho-ver">
+        <div onclick="redirect(${product.id})" class="list-group-item list-group-item-action cursor-active ho-ver">
             <div class="row">
                 <div class="col-md-3">
                     <img src="${product.image}" alt="${product.description}" class="img-thumbnail"></img>
