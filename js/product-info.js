@@ -15,7 +15,7 @@ function showProduct(array){
     let currentID = localStorage.getItem("prodID");
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
-        if(currentID === array[i].id){
+        if(currentID == array[i].id){
             product = array[i];
         }
     }
