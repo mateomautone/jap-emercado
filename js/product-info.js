@@ -51,6 +51,14 @@ function showProduct(array){
     document.getElementById("prod-info").innerHTML = htmlContentToAppend;
 }
 
+function addComment(){
+    let lista = document.getElementById("lista");
+    let comentario = document.getElementById("caja").value;
+    let nodo = document.createElement("ul");
+    nodo.innerHTML += comentario;
+    lista.appendChild(nodo);
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
     if(localStorage.getItem("catID") === "101"){
         final_url = autos_url;
@@ -86,4 +94,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
             showProduct(productsArray.products);
         }
     });
+
+    document.getElementById("send").addEventListener("click", ()=>{
+        addComment();
+        document.getElementById("caja").value = "";
+    })
 })
