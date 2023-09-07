@@ -20,15 +20,31 @@ function showProduct(array){
         }
     }
     htmlContentToAppend +=`
-    <div class="list-group-item list-group-item-action cursor-active ho-ver">
-        <div class="row">
-            <div class="col-md-3">
-                <img src="${product.image}" alt="${product.description}" class="img-thumbnail"></img>
-            </div> 
-            <div class="col-md-5">
-                <h2 class="name_cost">${product.name} - ${product.currency} ${product.cost}</h2>
-                <small class="sold_count">${product.soldCount} artículos vendidos</small>
-                <p class="desc">${product.description}</p>
+   <div class=>
+        <div class=>
+            <h1 id="nombre-producto">${product.name}</h1>
+        </div> 
+        <hr>
+
+        <div class=>
+            <h2 class="h2-productos"><strong>Precio</strong></h2>
+            <p>  ${product.currency}  ${product.cost} </p>
+            <h2 class="h2-productos"><strong>Descripción</strong></h2>
+            <p>${product.description}</p>
+            <h2 class="h2-productos"><strong>Categoría</strong></h2>
+            <p>${product.category}</p>
+            <h2 class="h2-productos"><strong>Cantidad de vendidos</strong></h2>
+            <p>${product.soldCount}</p>
+            </div>
+        <div>
+
+        <div>
+        <h2 class="h2-productos"><strong>Imágenes ilustrativas</strong></h2><br>
+        <img  id= "img-producto" src="${product.image}" alt="${product.description}" class="img-thumbnail"></img>
+           </div>
+        <div>
+            <h2 class="h2-productos"><strong>Comentarios</strong></h2>
+            <div id="comments-section">
             </div>
         </div>
     </div>  `;

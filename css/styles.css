@@ -223,3 +223,23 @@ h1 {
 #barra{
   width: 50%;
 }
+
+.h2-productos {
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 10px;
+}
+
+#nombre-producto {
+  font-size: 45px;
+  letter-spacing: 0px;
+  font-weight: normal;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-family: sans-serif;
+}
+
+#img-producto{
+  margin-bottom: 30px;
+  width: 550px;
+}
