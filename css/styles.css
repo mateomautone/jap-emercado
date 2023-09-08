@@ -243,3 +243,36 @@ h1 {
   margin-bottom: 30px;
   width: 300px;
 }
+
+#img-producto:hover{
+  transition: 150ms all;
+  transform: scale(1.1);
+}
+
+
+
+#comentarios h3 {
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 10px;
+  font-weight: bold;
+  color: black;
+}
+
+#send {
+  background-color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 5px;
+  border-radius: 3px;
+
+}
+
+#send:hover {
+  background-color: rgb(236, 108, 33);
+  color: white;
+}
+
+#caja {
+  display: block;
+  width: 500px;
+}

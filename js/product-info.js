@@ -20,8 +20,8 @@ function showProduct(array){
         }
     }
     htmlContentToAppend +=`
-   <div class=>
-        <div class=>
+   <div>
+        <div>
             <h1 id="nombre-producto">${product.name}</h1>
         </div> 
         <hr>
@@ -44,11 +44,6 @@ function showProduct(array){
             <img  id= "img-producto" src="img/prod${product.id}_2.jpg" alt="${product.description}" class="img-thumbnail"></img>
             <img  id= "img-producto" src="img/prod${product.id}_3.jpg" alt="${product.description}" class="img-thumbnail"></img>
             <img  id= "img-producto" src="img/prod${product.id}_4.jpg" alt="${product.description}" class="img-thumbnail"></img>
-        </div>
-        <div>
-            <h2 class="h2-productos"><strong>Comentarios</strong></h2>
-            <div id="comments-section">
-            </div>
         </div>
     </div>  `;
     document.getElementById("prod-info").innerHTML = htmlContentToAppend;
@@ -103,3 +98,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
         document.getElementById("caja").value = "";
     })
 })
+
