@@ -39,9 +39,12 @@ function showProduct(array){
         <div>
 
         <div>
-        <h2 class="h2-productos"><strong>Imágenes ilustrativas</strong></h2><br>
-        <img  id= "img-producto" src="${product.image}" alt="${product.description}" class="img-thumbnail"></img>
-           </div>
+            <h2 class="h2-productos"><strong>Imágenes ilustrativas</strong></h2><br>
+            <img  id= "img-producto" src="img/prod${product.id}_1.jpg" alt="${product.description}" class="img-thumbnail"></img>
+            <img  id= "img-producto" src="img/prod${product.id}_2.jpg" alt="${product.description}" class="img-thumbnail"></img>
+            <img  id= "img-producto" src="img/prod${product.id}_3.jpg" alt="${product.description}" class="img-thumbnail"></img>
+            <img  id= "img-producto" src="img/prod${product.id}_4.jpg" alt="${product.description}" class="img-thumbnail"></img>
+        </div>
         <div>
             <h2 class="h2-productos"><strong>Comentarios</strong></h2>
             <div id="comments-section">
