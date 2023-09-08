@@ -7,9 +7,11 @@ const vestimenta_url = 'https://japceibal.github.io/emercado-api/cats_products/1
 const electrodomesticos_url = 'https://japceibal.github.io/emercado-api/cats_products/107.json';
 const deporte_url = 'https://japceibal.github.io/emercado-api/cats_products/108.json';
 const celulares_url = 'https://japceibal.github.io/emercado-api/cats_products/109.json';
+let comments_url = 'https://japceibal.github.io/emercado-api/products_comments/' + localStorage.getItem("prodID") + '.json';
 let final_url = "";
 let productsArray = [];
 let product = [];
+let comentarios = [];
 
 function showProduct(array){
     let currentID = localStorage.getItem("prodID");
@@ -49,11 +51,32 @@ function showProduct(array){
     document.getElementById("prod-info").innerHTML = htmlContentToAppend;
 }
 
+function showComments(array){
+    let lista = document.getElementById("lista");
+    for(let i = 0; i < array.length; i++){
+        let nodo = document.createElement("ul");
+        nodo.innerHTML += `
+        <li class="list-group-item">
+            ${array[i].user} - ${array[i].dateTime} - ${array[i].score} <br>
+            ${array[i].description}
+        </li>
+        `;
+        lista.appendChild(nodo);
+    }
+}
+
 function addComment(){
     let lista = document.getElementById("lista");
     let comentario = document.getElementById("caja").value;
     let nodo = document.createElement("ul");
-    nodo.innerHTML += comentario;
+    let date = new Date();
+    let fecha = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    nodo.innerHTML = `
+    <li class="list-group-item">
+        ${localStorage.getItem("name")} - ${fecha} - 5 <br>
+        ${comentario}
+    </li>
+    `;
     lista.appendChild(nodo);
 }
 
@@ -92,6 +115,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
             showProduct(productsArray.products);
         }
     });
+
+    getJSONData(comments_url).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            comentarios = resultObj.data;
+            showComments(comentarios);
+        }
+    })
 
     document.getElementById("send").addEventListener("click", ()=>{
         addComment();

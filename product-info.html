@@ -40,12 +40,28 @@
     <div class="container" id="prod-info">
     </div>
     <div id="comentarios" class="container">
-      <h3>Comentarios</h3>
-      <ul id="lista">
+      <h2>Comentarios</h2>
+      <ul id="lista" ul class="list-group">
       </ul>
       <div>
+        <h3> Comentar </h3>
+        <label> Tu opinión </label>
         <textarea type="text" id="caja">
         </textarea><br>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Puntuación
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item">0</a></li>
+            <li><a class="dropdown-item">1</a></li>
+            <li><a class="dropdown-item">2</a></li>
+            <li><a class="dropdown-item">3</a></li>
+            <li><a class="dropdown-item">4</a></li>
+            <li><a class="dropdown-item">5</a></li>
+          </ul>
+        </div>
+        <br>
         <button id="send">Enviar comentario</button>
       </div>
     </div>
