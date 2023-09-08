@@ -28,11 +28,11 @@ function showProduct(array){
 
         <div class=>
             <h2 class="h2-productos"><strong>Precio</strong></h2>
-            <p>  ${product.currency}  ${product.cost} </p>
+            <p> ${product.currency} ${product.cost} </p>
             <h2 class="h2-productos"><strong>Descripción</strong></h2>
             <p>${product.description}</p>
             <h2 class="h2-productos"><strong>Categoría</strong></h2>
-            <p>${product.category}</p>
+            <p>${localStorage.getItem("catName")}</p>
             <h2 class="h2-productos"><strong>Cantidad de vendidos</strong></h2>
             <p>${product.soldCount}</p>
             </div>

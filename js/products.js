@@ -55,38 +55,47 @@ document.addEventListener("DOMContentLoaded", ()=>{
     if(localStorage.getItem("catID") === "101"){
         final_url = autos_url;
         document.getElementById("titulo").innerHTML = "Autos";
+        localStorage.setItem("catName", "Autos");
     }
     else if(localStorage.getItem("catID") === "102"){
         final_url = juguetes_url;
         document.getElementById("titulo").innerHTML = "Juguetes";
+        localStorage.setItem("catName", "Juguetes");
     }
     else if(localStorage.getItem("catID") === "103"){
         final_url = muebles_url;
         document.getElementById("titulo").innerHTML = "Muebles";
+        localStorage.setItem("catName", "Muebles");
     }
     else if(localStorage.getItem("catID") === "104"){
         final_url = herramientas_url;
         document.getElementById("titulo").innerHTML = "Herramientas";
+        localStorage.setItem("catName", "Herramientas");
     }
     else if(localStorage.getItem("catID") === "105"){
         final_url = computadoras_url;
         document.getElementById("titulo").innerHTML = "Computadoras";
+        localStorage.setItem("catName", "Computadoras");
     }
     else if(localStorage.getItem("catID") === "106"){
         final_url = vestimenta_url;
         document.getElementById("titulo").innerHTML = "Vestimenta";
+        localStorage.setItem("catName", "Vestimenta");
     }
     else if(localStorage.getItem("catID") === "107"){
         final_url = electrodomesticos_url;
         document.getElementById("titulo").innerHTML = "Electrodomésticos";
+        localStorage.setItem("catName", "Electrodomésticos");
     }
     else if(localStorage.getItem("catID") === "108"){
         final_url = deporte_url;
         document.getElementById("titulo").innerHTML = "Deporte";
+        localStorage.setItem("catName", "Deporte");
     }
     else if(localStorage.getItem("catID") === "109"){
         final_url = celulares_url;
         document.getElementById("titulo").innerHTML = "Celulares";
+        localStorage.setItem("catName", "Celulares");
     }
 
     getJSONData(final_url).then(function(resultObj){
