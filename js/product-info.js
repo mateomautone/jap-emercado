@@ -55,9 +55,18 @@ function showComments(array){
     let lista = document.getElementById("lista");
     for(let i = 0; i < array.length; i++){
         let nodo = document.createElement("ul");
+        let stars = "";
+        for(let j = 0; j < 5; j++){
+            if(j < array[i].score){
+                stars += `<span class="fa fa-star checked"></span>`;
+            }
+            else{
+                stars += `<span class="fa fa-star"></span>`;
+            }
+        }
         nodo.innerHTML += `
         <li class="list-group-item">
-            ${array[i].user} - ${array[i].dateTime} - ${array[i].score} <br>
+            ${array[i].user} - ${array[i].dateTime} - ${stars} <br>
             ${array[i].description}
         </li>
         `;
@@ -71,9 +80,18 @@ function addComment(){
     let nodo = document.createElement("ul");
     let date = new Date();
     let fecha = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    let puntuacion = "";
+    for(let i = 0; i < 5; i++){
+        if(i < document.getElementById("points").value){
+            puntuacion += `<span class="fa fa-star checked"></span>`;
+        }
+        else{
+            puntuacion += `<span class="fa fa-star"></span>`;
+        }
+    }
     nodo.innerHTML = `
     <li class="list-group-item">
-        ${localStorage.getItem("name")} - ${fecha} - 5 <br>
+        ${localStorage.getItem("name")} - ${fecha} - ${puntuacion} <br>
         ${comentario}
     </li>
     `;
