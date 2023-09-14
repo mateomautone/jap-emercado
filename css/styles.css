@@ -259,6 +259,15 @@ h1 {
   color: black;
 }
 
+#caja {
+  display: block;
+  width: 500px;
+}
+
+#points{
+  width: 20%;
+}
+
 #send {
   background-color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -270,13 +279,4 @@ h1 {
 #send:hover {
   background-color: rgb(236, 108, 33);
   color: white;
-}
-
-#caja {
-  display: block;
-  width: 500px;
-}
-
-#points{
-  width: 20%;
 }
