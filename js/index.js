@@ -26,3 +26,11 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 });
+
+document.addEventListener("DOMContentLoaded", function(){
+    let cerrar = document.getElementById("cerrar-sesion");
+    cerrar.addEventListener("click", function (){
+        localStorage.clear("name");
+    })
+})
+    
