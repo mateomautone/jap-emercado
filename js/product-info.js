@@ -87,7 +87,10 @@ function showRelated(product){
     let content = "";
     for(let i = 0; i < product.length; i++){
         content += `
-            <img id="img-producto" src=${product[i].image} class="img-thumbnail"></img>
+        <h3>${product[i].name}</h3>    
+        <a href="product-info.html?id=${product[i].id}"> /* por acá está el problema */
+                <img id="img-producto" src=${product[i].image} class="img-thumbnail"></img>
+            </a>
         `;  
     }
     document.getElementById("related").innerHTML = content;
