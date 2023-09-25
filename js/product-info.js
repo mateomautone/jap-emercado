@@ -13,7 +13,7 @@ function showProduct(product){
         </div> 
         <hr>
 
-        <div class=>
+        <div>
             <h2 class="h2-productos"><strong>Precio</strong></h2>
             <p> ${product.currency} ${product.cost} </p>
             <h2 class="h2-productos"><strong>Descripción</strong></h2>
@@ -83,11 +83,23 @@ function addComment(){
     lista.appendChild(nodo);
 }
 
+function showRelated(product){
+    let content = "";
+    for(let i = 0; i < product.length; i++){
+        content += `
+            <img id="img-producto" src=${product[i].image} class="img-thumbnail"></img>
+        `;  
+    }
+    document.getElementById("related").innerHTML = content;
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
     getJSONData(prod_url).then(function(resultObj){
         if (resultObj.status === "ok"){
             productsArray = resultObj.data;
             showProduct(productsArray);
+            showRelated(productsArray.relatedProducts);
+            console.log(productsArray.relatedProducts);
         }
     });
 
