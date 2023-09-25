@@ -12,7 +12,6 @@ function showProduct(product){
             <h1 id="nombre-producto">${product.name}</h1>
         </div> 
         <hr>
-
         <div>
             <h2 class="h2-productos"><strong>Precio</strong></h2>
             <p> ${product.currency} ${product.cost} </p>
@@ -24,15 +23,14 @@ function showProduct(product){
             <p>${product.soldCount}</p>
             </div>
         <div>
-
-        <div>
-            <h2 class="h2-productos"><strong>Imágenes ilustrativas</strong></h2><br>
-            <img  id= "img-producto" src="img/prod${product.id}_1.jpg" alt="${product.description}" class="img-thumbnail"></img>
-            <img  id= "img-producto" src="img/prod${product.id}_2.jpg" alt="${product.description}" class="img-thumbnail"></img>
-            <img  id= "img-producto" src="img/prod${product.id}_3.jpg" alt="${product.description}" class="img-thumbnail"></img>
-            <img  id= "img-producto" src="img/prod${product.id}_4.jpg" alt="${product.description}" class="img-thumbnail"></img>
-        </div>
-    </div>  `;
+        <h2 class="h2-productos"><strong>Imágenes ilustrativas</strong></h2><br>
+    </div>
+    `;
+    for(let i = 0; i < product.images.length; i++){
+        htmlContentToAppend +=`
+            <img id="img-producto" src="${product.images[i]}" class="img-thumbnail"></img>
+        `;
+    }
     document.getElementById("prod-info").innerHTML = htmlContentToAppend;
 }
 
@@ -88,9 +86,7 @@ function showRelated(product){
     for(let i = 0; i < product.length; i++){
         content += `
         <h3>${product[i].name}</h3>    
-        <a href="product-info.html?id=${product[i].id}"> /* por acá está el problema */
-                <img id="img-producto" src=${product[i].image} class="img-thumbnail"></img>
-            </a>
+        <img onclick="window.location='https://japceibal.github.io/emercado-api/products/${product[i].id}';" id="img-producto" src=${product[i].image} class="img-thumbnail"></img>
         `;  
     }
     document.getElementById("related").innerHTML = content;
@@ -102,7 +98,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             productsArray = resultObj.data;
             showProduct(productsArray);
             showRelated(productsArray.relatedProducts);
-            console.log(productsArray.relatedProducts);
         }
     });
 
