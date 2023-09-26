@@ -27,13 +27,20 @@ function showProduct(product){
         <h2 class="h2-productos"><strong>Imágenes ilustrativas</strong></h2><br>
     </div>
     `;
-    for(let i = 0; i < product.images.length; i++){
-        innerImgs +=`
-            <div class="carousel-item active">
-                <img src="${product.images[i]}" class="d-block img-fit">
-            </div>
-        `;
-    }
+    innerImgs +=`
+        <div class="carousel-item active">
+            <img src="${product.images[0]}" class="d-block img-fit">
+        </div>
+        <div class="carousel-item">
+            <img src="${product.images[1]}" class="d-block img-fit">
+        </div>
+        <div class="carousel-item">
+            <img src="${product.images[2]}" class="d-block img-fit">
+        </div>
+        <div class="carousel-item">
+            <img src="${product.images[3]}" class="d-block img-fit">
+        </div>
+    `;
     document.getElementById("prod-info").innerHTML = htmlContentToAppend;
     document.getElementById("imgs").innerHTML = innerImgs;
 }
