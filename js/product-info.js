@@ -81,12 +81,17 @@ function addComment(){
     lista.appendChild(nodo);
 }
 
+function reset(id){
+    localStorage.setItem("prodID", id);
+    location.reload();
+}
+
 function showRelated(product){
     let content = "";
     for(let i = 0; i < product.length; i++){
         content += `
         <h3>${product[i].name}</h3>    
-        <img onclick="window.location='https://japceibal.github.io/emercado-api/products/${product[i].id}';" id="img-producto" src=${product[i].image} class="img-thumbnail"></img>
+        <img onclick="reset(${product[i].id})" id="img-producto" src=${product[i].image} class="img-thumbnail"></img>
         `;  
     }
     document.getElementById("related").innerHTML = content;
