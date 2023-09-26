@@ -6,6 +6,7 @@ let comentarios = [];
 
 function showProduct(product){
     let htmlContentToAppend = "";
+    let innerImgs = "";
     htmlContentToAppend +=`
     <div>
         <div>
@@ -27,11 +28,14 @@ function showProduct(product){
     </div>
     `;
     for(let i = 0; i < product.images.length; i++){
-        htmlContentToAppend +=`
-            <img id="img-producto" src="${product.images[i]}" class="img-thumbnail"></img>
+        innerImgs +=`
+            <div class="carousel-item active">
+                <img src="${product.images[i]}" class="d-block img-fit">
+            </div>
         `;
     }
     document.getElementById("prod-info").innerHTML = htmlContentToAppend;
+    document.getElementById("imgs").innerHTML = innerImgs;
 }
 
 function showComments(array){
