@@ -34,3 +34,18 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 })
     
+const switchButton = document.getElementById('switch');
+        const body = document.body;
+        function toggleDarkMode() {
+            body.classList.toggle('dark');
+            switchButton.classList.toggle('active');
+            //Guarda la opcion seleccionada
+            const DarkModeOn = body.classList.contains('dark');
+            localStorage.setItem('darkModeEnabled', DarkModeOn);
+        }
+        //Almacenamiento de datos para mantener el darkmode
+        const DarkModeOn = localStorage.getItem('darkModeEnabled') === 'true';
+        if (DarkModeOn) {
+            toggleDarkMode();
+        }
+        switchButton.addEventListener('click', toggleDarkMode);
