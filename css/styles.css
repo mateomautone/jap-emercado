@@ -295,3 +295,8 @@ h1 {
 .dropdown-menu {
   background-color: #212529;
 }
+
+.clase-carrusel{
+  width: 50%;
+  margin-left: 25%;
+}

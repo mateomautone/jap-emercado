@@ -29,16 +29,16 @@ function showProduct(product){
     `;
     innerImgs +=`
         <div class="carousel-item active">
-            <img src="${product.images[0]}" class="d-block img-fit">
+            <img src="${product.images[0]}" class="d-block w-100">
         </div>
         <div class="carousel-item">
-            <img src="${product.images[1]}" class="d-block img-fit">
+            <img src="${product.images[1]}" class="d-block w-100">
         </div>
         <div class="carousel-item">
-            <img src="${product.images[2]}" class="d-block img-fit">
+            <img src="${product.images[2]}" class="d-block w-100">
         </div>
         <div class="carousel-item">
-            <img src="${product.images[3]}" class="d-block img-fit">
+            <img src="${product.images[3]}" class="d-block w-100">
         </div>
     `;
     document.getElementById("prod-info").innerHTML = htmlContentToAppend;
