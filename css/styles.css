@@ -282,8 +282,11 @@ h1 {
 }
 
 #userName {
-  background-color: #212529;
+  background-color: rgb(236, 108, 33);
+  color: rgb(255, 255, 255);
+  font-family:sans-serif;
   border: none;
+  letter-spacing: 1px;
 }
 
 .dropdown-item {
@@ -291,6 +294,13 @@ h1 {
   background-color: #212529;
   color: rgba(255, 255, 255, 0.5);
 }
+
+.dropdown-item:hover {
+  font-family:sans-serif;
+  background-color: rgb(236, 108, 33);
+  color: rgb(255, 255, 255);
+}
+
 
 .dropdown-menu {
   background-color: #212529;
