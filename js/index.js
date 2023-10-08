@@ -25,9 +25,6 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 
-<<<<<<< HEAD
-});
-=======
 });
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -52,4 +49,3 @@ const switchButton = document.getElementById('switch');
             toggleDarkMode();
         }
         switchButton.addEventListener('click', toggleDarkMode);
->>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
