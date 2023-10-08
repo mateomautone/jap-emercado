@@ -25,4 +25,31 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 
+<<<<<<< HEAD
 });
+=======
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+    let cerrar = document.getElementById("cerrar-sesion");
+    cerrar.addEventListener("click", function (){
+        localStorage.clear("name");
+    })
+})
+    
+const switchButton = document.getElementById('switch');
+        const body = document.body;
+        function toggleDarkMode() {
+            body.classList.toggle('dark');
+            switchButton.classList.toggle('active');
+            //Guarda la opcion seleccionada
+            const DarkModeOn = body.classList.contains('dark');
+            localStorage.setItem('darkModeEnabled', DarkModeOn);
+        }
+        //Almacenamiento de datos para mantener el darkmode
+        const DarkModeOn = localStorage.getItem('darkModeEnabled') === 'true';
+        if (DarkModeOn) {
+            toggleDarkMode();
+        }
+        switchButton.addEventListener('click', toggleDarkMode);
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5

@@ -13,6 +13,7 @@ let minPrice = undefined;
 let maxPrice = undefined;
 let productsCopy = [];
 
+<<<<<<< HEAD
 function showProduct(array){
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
@@ -34,6 +35,34 @@ function showProduct(array){
     document.getElementById("prod-list").innerHTML = htmlContentToAppend;
 }
 
+=======
+function redirect(id){
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html";
+}
+
+function showProduct(array){
+    let htmlContentToAppend = "";
+    for (let i = 0; i < array.length; i++) {
+        let product = array[i];
+        htmlContentToAppend +=`
+        <div onclick="redirect(${product.id})" class="list-group-item list-group-item-action cursor-active ho-ver">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="${product.image}" alt="${product.description}" class="img-thumbnail"></img>
+                </div> 
+                <div class="col-md-5">
+                    <h2 class="name_cost">${product.name} - ${product.currency} ${product.cost}</h2>
+                    <small class="sold_count">${product.soldCount} artículos vendidos</small>
+                    <p class="desc">${product.description}</p>
+                </div>
+            </div>
+        </div>  `;
+    }
+    document.getElementById("prod-list").innerHTML = htmlContentToAppend;
+}
+
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
 function searchProduct(){
   let input = document.getElementById("barra").value;
   input = input.toLowerCase();
@@ -50,38 +79,74 @@ document.addEventListener("DOMContentLoaded", ()=>{
     if(localStorage.getItem("catID") === "101"){
         final_url = autos_url;
         document.getElementById("titulo").innerHTML = "Autos";
+<<<<<<< HEAD
+=======
+        localStorage.setItem("catName", "Autos");
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
     }
     else if(localStorage.getItem("catID") === "102"){
         final_url = juguetes_url;
         document.getElementById("titulo").innerHTML = "Juguetes";
+<<<<<<< HEAD
+=======
+        localStorage.setItem("catName", "Juguetes");
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
     }
     else if(localStorage.getItem("catID") === "103"){
         final_url = muebles_url;
         document.getElementById("titulo").innerHTML = "Muebles";
+<<<<<<< HEAD
+=======
+        localStorage.setItem("catName", "Muebles");
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
     }
     else if(localStorage.getItem("catID") === "104"){
         final_url = herramientas_url;
         document.getElementById("titulo").innerHTML = "Herramientas";
+<<<<<<< HEAD
+=======
+        localStorage.setItem("catName", "Herramientas");
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
     }
     else if(localStorage.getItem("catID") === "105"){
         final_url = computadoras_url;
         document.getElementById("titulo").innerHTML = "Computadoras";
+<<<<<<< HEAD
+=======
+        localStorage.setItem("catName", "Computadoras");
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
     }
     else if(localStorage.getItem("catID") === "106"){
         final_url = vestimenta_url;
         document.getElementById("titulo").innerHTML = "Vestimenta";
+<<<<<<< HEAD
+=======
+        localStorage.setItem("catName", "Vestimenta");
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
     }
     else if(localStorage.getItem("catID") === "107"){
         final_url = electrodomesticos_url;
         document.getElementById("titulo").innerHTML = "Electrodomésticos";
+<<<<<<< HEAD
+=======
+        localStorage.setItem("catName", "Electrodomésticos");
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
     }
     else if(localStorage.getItem("catID") === "108"){
         final_url = deporte_url;
         document.getElementById("titulo").innerHTML = "Deporte";
+<<<<<<< HEAD
+=======
+        localStorage.setItem("catName", "Deporte");
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
     }
     else if(localStorage.getItem("catID") === "109"){
         final_url = celulares_url;
         document.getElementById("titulo").innerHTML = "Celulares";
+<<<<<<< HEAD
+=======
+        localStorage.setItem("catName", "Celulares");
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
     }
 
     getJSONData(final_url).then(function(resultObj){

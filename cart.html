@@ -9,6 +9,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'> 
 </head>
 
 <body>
@@ -29,17 +30,46 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
+          <div class="dropdown">
+            <li class="nav-item">
+              <button class="btn btn-secondary dropdown-toggle, nav-link" id="userName" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="login.html" id="cerrar-sesion">Cerrar sesión</a></li>
+              </div>
           </li>
         </ul>
       </div>
+          <div>
+            <button class="switchDark active" id="switch">
+              <span><i class='bx bx-sun' ></i></span>
+              <span><i class='bx bx-moon' ></i></span>
+          </div>
     </div>
   </nav>
   <main>
+    <div class="container" style="text-align: center;">
+      <h1>Carrito de compras</h1>
+    </div>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <h2>Artículos a comprar</h2>
+    </div>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="tablaProd" class="table-group-divider">
+
+        </tbody>
+      </table>
     </div>
   </main>
   <footer class="text-muted">
@@ -61,6 +91,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>

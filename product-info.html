@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'> 
 </head>
 
 <body>
@@ -30,16 +31,69 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
+          <div class="dropdown">
+            <li class="nav-item">
+              <button class="btn btn-secondary dropdown-toggle, nav-link" id="userName" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="login.html" id="cerrar-sesion">Cerrar sesión</a></li>
+              </div>
           </li>
         </ul>
       </div>
+          <div>
+            <button class="switchDark active" id="switch">
+              <span><i class='bx bx-sun' ></i></span>
+              <span><i class='bx bx-moon' ></i></span>
+          </div>
     </div>
   </nav>
   <main>
+    <div class="container" id="prod-info">  
+
+    </div>
+    <div id="carouselExampleControls" class="carousel slide clase-carrusel" data-bs-ride="carousel">
+      <div class="carousel-inner" id="imgs">
+        
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <br> <br>
+    <div id="comentarios" class="container">
+      <h2>Comentarios</h2>
+      <ul id="lista" ul class="list-group">
+      </ul>
+      <div>
+        <h3> Comentar </h3>
+        <label> Tu opinión </label>
+        <textarea type="text" id="caja">
+        </textarea><br>
+        <label>Tu puntuación:</label>
+        <br> <br>
+        <select id="points">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <br> <br>
+        <button id="send">Enviar comentario</button>
+      </div>
+    </div>
+    <br>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <h2> Productos relacionados </h2>
+      <div class="container" id="related">
       </div>
     </div>
   </main>
@@ -62,6 +116,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
