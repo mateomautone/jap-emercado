@@ -4,6 +4,22 @@ let productsArray = [];
 let product = [];
 let comentarios = [];
 
+// Funcionalidad añadir al carrito
+let carrito = JSON.parse(localStorage.getItem('cart')) || [];
+
+function aniadircarrito(product) {
+    carrito.push({
+        name: product.name,
+        image: product.images[0],
+        price: product.cost,
+        currency: product.currency,
+    });
+    // Save the updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(carrito));
+}
+
+// Funcionalidad añadir al carrito fin
+
 function showProduct(product){
     let htmlContentToAppend = "";
     let innerImgs = "";
