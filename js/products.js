@@ -18,6 +18,7 @@ function redirect(id){
     window.location = "product-info.html";
 }
 
+<<<<<<< HEAD
 function showProduct(array){
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
@@ -39,6 +40,34 @@ function showProduct(array){
     document.getElementById("prod-list").innerHTML = htmlContentToAppend;
 }
 
+=======
+function redirect(id){
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html";
+}
+
+function showProduct(array){
+    let htmlContentToAppend = "";
+    for (let i = 0; i < array.length; i++) {
+        let product = array[i];
+        htmlContentToAppend +=`
+        <div onclick="redirect(${product.id})" class="list-group-item list-group-item-action cursor-active ho-ver">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="${product.image}" alt="${product.description}" class="img-thumbnail"></img>
+                </div> 
+                <div class="col-md-5">
+                    <h2 class="name_cost">${product.name} - ${product.currency} ${product.cost}</h2>
+                    <small class="sold_count">${product.soldCount} artículos vendidos</small>
+                    <p class="desc">${product.description}</p>
+                </div>
+            </div>
+        </div>  `;
+    }
+    document.getElementById("prod-list").innerHTML = htmlContentToAppend;
+}
+
+>>>>>>> 689b4171d326607e4c11f8104578e3841c6cbdd5
 function searchProduct(){
   let input = document.getElementById("barra").value;
   input = input.toLowerCase();

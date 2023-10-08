@@ -1,6 +1,13 @@
 const cart_url = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
 let cartInfo = [];
 
+
+//funcion carrito
+let carrito = JSON.parse(localStorage.getItem('cart')) || [];
+
+//aaa
+
+
 function showShop(array){
     let htmlAppend = "";
     htmlAppend += `
@@ -12,6 +19,17 @@ function showShop(array){
         <td id="unitSub">USD ${array.unitCost}</td>
       </tr>
     `;
+    carrito.forEach(element => {
+      htmlAppend += `
+      <tr>
+        <th scope="row" style="width: 15%;"><img style="width: 45%;" src="${element.image}"</th>
+        <td>${element.name}</td>
+        <td id="unitCost">USD ${element.price}</td>
+        <td style="width: 25%;"> <input id="unitCant" style="width: 25%;" type="text" value="1"> </td>
+        <td id="unitSub">USD ${element.price}</td>
+      </tr>
+    `;
+    });
     document.getElementById("tablaProd").innerHTML = htmlAppend;
 };
 
