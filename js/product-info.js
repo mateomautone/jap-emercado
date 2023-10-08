@@ -27,6 +27,8 @@ function showProduct(product){
     <div>
         <div>
             <h1 id="nombre-producto">${product.name}</h1>
+            <button class="carritobutton" onclick="aniadircarrito(productsArray)">Comprar</button>
+         
         </div> 
         <hr>
         <div>
