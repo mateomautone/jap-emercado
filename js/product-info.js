@@ -14,8 +14,8 @@ function aniadircarrito(product) {
         price: product.cost,
         currency: product.currency,
     });
-    // Save the updated cart to localStorage
     localStorage.setItem('cart', JSON.stringify(carrito));
+    window.location = "cart.html"
 }
 
 // Funcionalidad añadir al carrito fin
