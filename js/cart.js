@@ -8,7 +8,7 @@ function showShop(array){
         <th scope="row" style="width: 15%;"><img style="width: 45%;" src="${array.image}"</th>
         <td>${array.name}</td>
         <td id="unitCost">USD ${array.unitCost}</td>
-        <td style="width: 25%;"> <input id="unitCant" style="width: 25%;" type="text" value="1"> </td>
+        <td style="width: 25%;"> <input id="unitCant" style="width: 25%;" type="number" value="1"> </td>
         <td id="unitSub">USD ${array.unitCost}</td>
       </tr>
     `;
@@ -21,5 +21,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
           cartInfo = resultObj.data.articles;
           showShop(cartInfo[0]);
         }
-    });
-})
+        document.getElementById("unitCant").addEventListener("input", ()=>{
+          let cantidad = parseFloat(document.getElementById("unitCant").value);
+          let costoUnitario = parseFloat(cartInfo[0].unitCost);
+          let subtotal = (cantidad*costoUnitario);
+            document.getElementById("unitSub").innerHTML = `USD ${subtotal.toFixed(2)}`;
+        });
+      });
+  });
+
