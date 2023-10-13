@@ -376,4 +376,8 @@ body.dark{
   #barra{
     width: 100%;
   }
+  #caja {
+    display: block;
+    width: 300px;
+  }
   }
