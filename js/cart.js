@@ -40,4 +40,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
           showShop(cartInfo[0]);
         }
     });
+
+    document.getElementById("empty").addEventListener("click", ()=>{
+      localStorage.removeItem("cart");
+      location.reload();
+    })
 })
