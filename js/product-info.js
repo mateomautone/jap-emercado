@@ -4,6 +4,22 @@ let productsArray = [];
 let product = [];
 let comentarios = [];
 
+// Funcionalidad añadir al carrito
+let carrito = JSON.parse(localStorage.getItem('cart')) || [];
+
+function aniadircarrito(product) {
+    carrito.push({
+        name: product.name,
+        image: product.images[0],
+        price: product.cost,
+        currency: product.currency,
+    });
+    localStorage.setItem('cart', JSON.stringify(carrito));
+    window.location = "cart.html"
+}
+
+// Funcionalidad añadir al carrito fin
+
 function showProduct(product){
     let htmlContentToAppend = "";
     let innerImgs = "";
@@ -11,6 +27,8 @@ function showProduct(product){
     <div>
         <div>
             <h1 id="nombre-producto">${product.name}</h1>
+            <button class="carritobutton" onclick="aniadircarrito(productsArray)">Comprar</button>
+         
         </div> 
         <hr>
         <div>
