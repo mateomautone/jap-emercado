@@ -38,24 +38,32 @@ document.addEventListener("DOMContentLoaded", ()=>{
         if (resultObj.status === "ok"){
           cartInfo = resultObj.data.articles;
           showShop(cartInfo[0]);
-        for(let j = 0; j < carrito.length; j++){
-          document.getElementById("unitCant"+j).addEventListener("input",()=>{
-            document.getElementById("unitSub"+j).innerHTML = "USD " + parseInt(document.getElementById("unitCant"+j).value)*(parseInt(carrito[j].price));
-          }); 
-        }
+          for(let j = 0; j < carrito.length; j++){
+            document.getElementById("unitCant"+j).addEventListener("input",()=>{
+              if(document.getElementById("unitCant"+j).value === ""){
+                document.getElementById("unitSub"+j).innerHTML = "USD 0";
+              }
+              else{
+                document.getElementById("unitSub"+j).innerHTML = "USD " + parseInt(document.getElementById("unitCant"+j).value)*(parseInt(carrito[j].price));
+              }
+            }); 
+          }
         }
         document.getElementById("unitCant").addEventListener("input", ()=>{
           let cantidad = parseFloat(document.getElementById("unitCant").value);
           let costoUnitario = parseFloat(cartInfo[0].unitCost);
           let subtotal = (cantidad*costoUnitario);
+          if(document.getElementById("unitCant").value === ""){
+            document.getElementById("unitSub").innerHTML = `USD 0`;
+          }
+          else{
             document.getElementById("unitSub").innerHTML = `USD ${subtotal}`;
+          }
         });
     });
     document.getElementById("empty").addEventListener("click", ()=>{
       localStorage.removeItem("cart");
       location.reload();
     });
-    
-    console.log(carrito);
-  });
+});
 
