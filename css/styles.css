@@ -362,3 +362,18 @@ body.dark{
   background: #2e2d2d;
   color: #f5f0f0;
 }
+
+
+@media screen and (max-width: 950px) {
+  h1{
+    padding: 20px;
+    padding-left: 4px;
+    font-size: 25px;
+  }
+  #descripcion {
+    font-size: 18px;
+  }
+  #barra{
+    width: 100%;
+  }
+  }
