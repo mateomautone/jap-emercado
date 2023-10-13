@@ -14,6 +14,7 @@ function showProduct(product){
         </div> 
         <hr>
         <div>
+            <button id="volver">Volver al listado</button>
             <h2 class="h2-productos"><strong>Precio</strong></h2>
             <p> ${product.currency} ${product.cost} </p>
             <h2 class="h2-productos"><strong>Descripción</strong></h2>
@@ -43,6 +44,7 @@ function showProduct(product){
     `;
     document.getElementById("prod-info").innerHTML = htmlContentToAppend;
     document.getElementById("imgs").innerHTML = innerImgs;
+    
 }
 
 function showComments(array){
@@ -115,6 +117,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
             showProduct(productsArray);
             showRelated(productsArray.relatedProducts);
         }
+        document.getElementById("volver").addEventListener("click", ()=>{
+            location.replace("products.html")
+          })
     });
 
     getJSONData(comments_url).then(function(resultObj){
