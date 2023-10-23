@@ -12,6 +12,7 @@ function showShop(){
         	<td id="unitCost${j}">USD ${carrito[j].price}</td>
         	<td style="width: 25%;"> <input id="unitCant${j}" style="width: 25%;" type="number" value="1" min="0"> </td>
         	<td id="unitSub${j}">USD ${carrito[j].price}</td>
+            <td> <i id="delete${j}" class="fa fa-trash" style="color: #f00006;"></i> </td>
       	</tr>
     	`;
     };
@@ -45,23 +46,19 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 document.getElementById("unitSub"+j).innerHTML = "USD " + parseInt(document.getElementById("unitCant"+j).value)*(parseInt(carrito[j].price));
             }
         }); 
-    }
-        
-    document.getElementById("unitCant").addEventListener("input", ()=>{
-        let cantidad = parseFloat(document.getElementById("unitCant").value);
-        let costoUnitario = parseFloat(cartInfo[0].unitCost);
-        let subtotal = (cantidad*costoUnitario);
-        if(document.getElementById("unitCant").value === ""){
-            document.getElementById("unitSub").innerHTML = `USD 0`;
-        }
-        else{
-            document.getElementById("unitSub").innerHTML = `USD ${subtotal}`;
-        }
-    });
+    };
     
-    document.getElementById("empty").addEventListener("click", ()=>{
-      	localStorage.removeItem("cart");
-      	location.reload();
-    });
+    for(let i = 0; i < carrito.length; i++){
+		document.getElementById("delete"+i).addEventListener("click", ()=>{
+			let j = 0;
+			while(j < carrito.length && carrito[j].name != document.getElementById("name"+i).innerHTML){
+				j++;
+			}
+			carrito.splice(j, 1);
+			localStorage.setItem('cart', JSON.stringify(carrito));
+			location.reload();
+		});
+	};
+
 });
 
