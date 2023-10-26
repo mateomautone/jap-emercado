@@ -80,20 +80,22 @@
               <div class="d-block col-6">
                 <form class="needs-validation" id="buy-form">
                 <h4 class="mt-5">Tipo de envío</h4>
+
                 <div class="custom-control custom-radio">
-                  <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" checked=""
-                    required="">
-                  <label class="custom-control-label" for="premiumradio">Premium (2-5 días) - Costo del 15% sobre el
+                  <input id="premium" type="radio" class="custom-control-input" name="envio" required>
+                   <label class="custom-control-label" for="premium">Premium (2-5 días) - Costo del 15% sobre el
                     subtotal</label>
                 </div>
+
                 <div class="custom-control custom-radio">
-                  <input id="expressradio" name="publicationType" type="radio" class="custom-control-input" required="">
-                  <label class="custom-control-label" for="expressradio">Express (5-8 días) - Costo del 7% sobre el
+                  <input id="express" type="radio" class="custom-control-input" name="envio" required>
+                  <label class="custom-control-label" for="express">Express (5-8 días) - Costo del 7% sobre el
                     subtotal</label>
                 </div>
+
                 <div class="custom-control custom-radio">
-                  <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
-                  <label class="custom-control-label" for="standardradio">Standard (12-15 días) - Costo del 5% sobre el
+                  <input id="standard" type="radio" class="custom-control-input" name="envio" required>
+                  <label class="custom-control-label" for="standard">Standard (12-15 días) - Costo del 5% sobre el
                     subtotal</label>
                 </div>
               </div>
@@ -115,8 +117,21 @@
                   <input type="text" class="form-control" id="corner" placeholder="" value="" required>
                 </div>
               </div>
+              <div class="row" id="costos">
+                <h3>Costos</h3>
+              <div class="card">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Subtotal<p class="aclaracion">Costo unitario del producto por cantidad</p><div class="calculo" id="subtotal"></div></li>
+                <li class="list-group-item">Costo de envío <p class="aclaracion">Según el tipo de envío</p><div class="calculo" id="costoEnvio"></div> 
+                </li>
+                <li class="list-group-item">Total<p class="aclaracion">($)</p><div class="calculo" id="total"></div>
+              </li>
+              </ul>
+            </div>
+         </div>
             </div>
 
+          
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">

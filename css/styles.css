@@ -384,3 +384,19 @@ body.dark{
     width: 300px;
   }
   }
+
+  #costos {
+    margin-top: 2em;
+  }
+
+  .aclaracion {
+    font-size: 0.9em;
+    color: #605f5f;
+    align-content:start
+  }
+
+  .card {
+    align-content: start;
+  }
+
+  
