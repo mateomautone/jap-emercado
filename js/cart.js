@@ -1,12 +1,12 @@
 const cart_url = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
 let cartInfo = [];
 let subtotalesFinales = [];
+var contador = 0;
 
 
 //funcion carrito
 let carrito = JSON.parse(localStorage.getItem('cart')) || [];
 
-//aaa
 
 
 function showShop(array){
@@ -58,10 +58,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
           let subtotal = (cantidad*costoUnitario);
             document.getElementById("unitSub").innerHTML = `USD ${subtotal}`;       
 
+//Calcula en precio del envío y el total
+function tipoEnvio (boton, valor){
+  let envio = 0;
+  if (boton.checked){
+    envio = (subtotal * valor);
+    console.log(envio)
+    let totalFinal = (envio + contador);
+    document.getElementById("costoEnvio").innerHTML = "USD " + envio;
+    document.getElementById("total").innerHTML= "USD " + totalFinal;
+  }
+}
 //Calcula la suma de todos los subtotales
             subtotalesFinales.push(subtotal);
             console.log(subtotalesFinales);
-            let contador = 0;
             for (i=0;i<subtotalesFinales.length;i++){
               contador=subtotalesFinales[i];
               document.getElementById("subtotal").innerHTML = "USD " + contador;
@@ -69,41 +79,25 @@ document.addEventListener("DOMContentLoaded", ()=>{
               subtotalesFinales.length = 0;
               }
             }
+            
 
-//Calcula en precio del envío y el total
+
 let envioP = document.getElementById("premium");
 let envioE = document.getElementById("express");
 let envioS = document.getElementById("standard");
-let envio = 0;
 
-envioP.addEventListener("click", () => {
-  if (envioP.checked) {
-    envio = subtotal * 0.15;
-    let totalFinal = (envio + contador);
-    console.log(envio);
-    document.getElementById("costoEnvio").innerHTML = "USD " + envio;
-    document.getElementById("total").innerHTML= "USD " + totalFinal;
-  }
+envioP.addEventListener("change", () => {
+  tipoEnvio(envioP, 0.15);
 });
 
-envioE.addEventListener("click", () => {
-  if (envioE.checked) {
-    envio = subtotal * 0.07;
-    let totalFinal = (envio + contador);
-    document.getElementById("costoEnvio").innerHTML = "USD " + envio;
-    document.getElementById("total").innerHTML= "USD " + totalFinal;
-  }
+envioE.addEventListener("change", () => {
+  tipoEnvio(envioE, 0.07);
 });
 
-envioS.addEventListener("click", () => {
-  if (envioS.checked) {
-    envio = subtotal * 0.05;
-    let totalFinal = (envio + contador);
-    document.getElementById("costoEnvio").innerHTML = "USD " + envio;
-    document.getElementById("total").innerHTML= "USD " + totalFinal;
-  } 
+envioS.addEventListener("change", () => {
+  tipoEnvio(envioS, 0.05)
 });
-
        });
     });
 });
+
