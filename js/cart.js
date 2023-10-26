@@ -1,7 +1,8 @@
 const cart_url = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
 let cartInfo = [];
 let carrito = JSON.parse(localStorage.getItem('cart')) || [];
-
+let Sub = 0;
+let subFinal = 0;
 
 /* VALIDAR Form */
 
@@ -88,6 +89,50 @@ document.addEventListener("DOMContentLoaded", ()=>{
     });
 
 	showShop();
+
+	//mostrar cada subtotal por separado
+	for(let j = 0; j < carrito.length; j++){
+        document.getElementById("unitCant"+j).addEventListener("input",()=>{
+            document.getElementById("unitSub"+j).innerHTML = carrito[j].currency + " " + parseInt(document.getElementById("unitCant"+j).value)*(parseInt(carrito[j].price));
+        });
+    };
+
+	//mostrar el subtotal
+	function mostrarSub(){
+		for(let a = 0; a < carrito.length; a++){
+			if(document.getElementById("unitSub" + a).innerHTML.slice(0,3) == "USD"){
+				Sub = (parseInt(document.getElementById("unitSub" + a).innerHTML.slice(4)));
+			}
+			else{
+				Sub = (parseInt(document.getElementById("unitSub" + a).innerHTML.slice(4))/40);
+			}
+			subFinal += Sub;
+		}
+		document.getElementById("subtotal").innerHTML = "USD " + subFinal;
+		subFinal = 0;
+	};
+	mostrarSub();
+	for(let a = 0; a < carrito.length; a++){
+		document.getElementById("unitCant"+a).addEventListener("input", ()=>{
+			mostrarSub();
+		});
+	};
+
+	//mostrar costo de envío
+	document.getElementById("premiumradio").addEventListener("click", ()=>{
+		document.getElementById("envio").innerHTML = "USD " + parseFloat(document.getElementById("subtotal").innerHTML.slice(4))*0.15;
+	});
+	document.getElementById("expressradio").addEventListener("click", ()=>{
+		document.getElementById("envio").innerHTML = "USD " + parseFloat(document.getElementById("subtotal").innerHTML.slice(4))*0.07;
+	});
+	document.getElementById("standardradio").addEventListener("click", ()=>{
+		document.getElementById("envio").innerHTML = "USD " + parseFloat(document.getElementById("subtotal").innerHTML.slice(4))*0.05;
+	});
+
+	//mostrar total
+	setInterval(()=>{
+		document.getElementById("total").innerHTML = "USD " + (parseFloat(document.getElementById("envio").innerHTML.slice(4)) + parseFloat(document.getElementById("subtotal").innerHTML.slice(4)));
+	}, 10);
 
     for(let j = 0; j < carrito.length; j++){
         document.getElementById("unitCant"+j).addEventListener("input",()=>{
