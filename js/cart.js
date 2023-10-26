@@ -2,6 +2,58 @@ const cart_url = "https://japceibal.github.io/emercado-api/user_cart/25801.json"
 let cartInfo = [];
 let carrito = JSON.parse(localStorage.getItem('cart')) || [];
 
+
+/* VALIDAR Form */
+
+function validateForm() {
+	let premiumChecked = document.getElementById('premiumradio').checked;
+	let expressChecked = document.getElementById('expressradio').checked;
+	let standardChecked = document.getElementById('standardradio').checked;
+	let streetValue = document.getElementById('street').value;
+	let numberValue = document.getElementById('number').value;
+	let cornerValue = document.getElementById('corner').value;
+
+	let isValid = true;
+
+	if (!premiumChecked && !expressChecked && !standardChecked) {
+		isValid = false;
+		document.getElementById('radioInvalid').style.display = 'block';
+	} else {
+		document.getElementById('radioInvalid').style.display = 'none';
+	}
+
+	if (streetValue === "") {
+		isValid = false;
+		document.getElementById('streetInvalid').style.display = 'block';
+	} else {
+		document.getElementById('streetInvalid').style.display = 'none';
+	}
+
+	if (numberValue === "") {
+		isValid = false;
+		document.getElementById('numberInvalid').style.display = 'block';
+	} else {
+		document.getElementById('numberInvalid').style.display = 'none';
+	}
+
+	if (cornerValue === "") {
+		isValid = false;
+		document.getElementById('cornerInvalid').style.display = 'block';
+	} else {
+		document.getElementById('cornerInvalid').style.display = 'none';
+	}
+
+	if (isValid) {
+		let popup = document.getElementById("successPopup");
+        popup.style.display = "block";
+        setTimeout(function(){
+            popup.style.display = "none";
+        }, 2000);
+    }
+	}
+
+// FIN VALIDAR FORM
+
 function showShop(){
     let htmlAppend = "";
     for(let j = 0; j < carrito.length; j++){
