@@ -70,6 +70,9 @@
         <tbody id="tablaProd" class="table-group-divider">
         </tbody>
       </table>
+      <div id="invalidcant" hidden style="color: rgb(221, 18, 18)">
+				Las cantidades no son válidas.
+			</div>
       <hr>
     </div>
     <form id="form" method="get" class="needs-validation" novalidate>
@@ -154,7 +157,60 @@
           </ul>
           <br> <hr>
         </div>
-        
+        <div>
+          <h4 class="mt-5">Forma de pago</h4>
+          <br>
+          <button id="modalopener" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Seleccionar forma de pago
+          </button>
+          <label id="nada" for="modalopener">No se ha seleccionado</label>
+          <label id="formabanco" for="modalopener" hidden>Transferencia bancaria</label>
+          <label id="formatarjeta" for="modalopener" hidden>Tarjeta de crédito</label>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title fs-5" id="exampleModalLabel">Forma de pago</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="custom-control custom-radio">
+                      <input id="creditcard" name="radiomodal" type="radio" class="custom-control-input" autocomplete="off" required>
+                      <label class="custom-control-label" for="creditcard"> Tarjeta de crédito </label>								
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="numbercard">Número de tarjeta</label>
+                      <input type="text" class="form-control" id="numbercard" autocomplete="off" required>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="codecard">Código de seguridad</label>
+                      <input type="text" class="form-control" id="codecard" autocomplete="off" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label for="datecard">Vencimiento (MM/AA)</label>
+                      <input type="text" class="form-control" id="datecard" autocomplete="off" required>
+                    </div>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="bank" name="radiomodal" type="radio" class="custom-control-input" autocomplete="off" required>
+                    <label class="custom-control-label" for="bank"> Transferencia bancaria </label>													
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="numberbank">Número de cuenta</label>
+                    <input type="text" class="form-control" id="numberbank" autocomplete="off" required>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
         <div>
           <button id="finish" type="submit" class="btn btn-primary" style="width: 100%;">Finalizar la compra</button>
         </div>

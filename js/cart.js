@@ -3,8 +3,11 @@ let cartInfo = [];
 let carrito = JSON.parse(localStorage.getItem('cart')) || [];
 let Sub = 0;
 let subFinal = 0;
-
-
+let numeroBanco = document.getElementById("numberbank");
+let numeroTarjeta = document.getElementById("numbercard");
+let codeTarjeta = document.getElementById("codecard");
+let vencTarjeta = document.getElementById("datecard");
+let cantidades;
 
 function showShop(){
     let htmlAppend = "";
@@ -14,7 +17,7 @@ function showShop(){
         	<th scope="row" style="width: 15%;"><img style="width: 45%;" src="${carrito[j].image}"</th>
         	<td id="name${j}">${carrito[j].name}</td>
         	<td id="unitCost${j}">${carrito[j].currency} ${carrito[j].price}</td>
-        	<td style="width: 25%;"> <input id="unitCant${j}" style="width: 25%;" type="number" value="1" min="0"> </td>
+        	<td style="width: 25%;"> <input class="inputs" id="unitCant${j}" style="width: 25%;" type="number" value="1" min="0"> </td>
         	<td id="unitSub${j}">${carrito[j].currency} ${carrito[j].price}</td>
             <td> <i id="delete${j}" class="fa fa-trash" style="color: #f00006;"></i> </td>
       	</tr>
@@ -41,14 +44,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 	showShop();
 
-	//mostrar cada subtotal por separado
+	//Mostrar cada subtotal por separado
 	for(let j = 0; j < carrito.length; j++){
         document.getElementById("unitCant"+j).addEventListener("input",()=>{
             document.getElementById("unitSub"+j).innerHTML = carrito[j].currency + " " + parseInt(document.getElementById("unitCant"+j).value)*(parseInt(carrito[j].price));
+			cantidades = 0;
+			let inputs = document.getElementsByClassName("inputs");
+			for(let k = 0; k < carrito.length; k++){
+				if(parseInt(inputs[k].value) > 0){
+					cantidades += 1;
+				}
+			}
         });
     };
 
-	//mostrar el subtotal
+	//Mostrar el subtotal
 	function mostrarSub(){
 		for(let a = 0; a < carrito.length; a++){
 			if(document.getElementById("unitSub" + a).innerHTML.slice(0,3) == "USD"){
@@ -69,7 +79,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 		});
 	};
 
-	//mostrar costo de envío
+	//Mostrar costo de envío
 	document.getElementById("premiumradio").addEventListener("click", ()=>{
 		document.getElementById("envio").innerHTML = "USD " + (parseFloat(document.getElementById("subtotal").innerHTML.slice(4))*0.15).toFixed(2);
 	});
@@ -80,7 +90,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 		document.getElementById("envio").innerHTML = "USD " + (parseFloat(document.getElementById("subtotal").innerHTML.slice(4))*0.05).toFixed(2);
 	});
 
-	//mostrar total
+	//Mostrar total
 	setInterval(()=>{
 		document.getElementById("total").innerHTML = "USD " + ((parseFloat(document.getElementById("envio").innerHTML.slice(4)) + parseFloat(document.getElementById("subtotal").innerHTML.slice(4))).toFixed(2));
 	}, 10);
@@ -104,9 +114,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const form = document.getElementById("form")
       
     form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
+        if (!form.checkValidity() || cantidades < carrito.length) {
             event.preventDefault()
             event.stopPropagation()
+			if(cantidades < carrito.length){
+				document.getElementById("invalidcant").hidden = false;
+			}
+			else{
+				document.getElementById("invalidcant").hidden = true;
+			}
         }
 		else{
 			event.preventDefault();
@@ -114,11 +130,38 @@ document.addEventListener("DOMContentLoaded", ()=>{
 			setTimeout(function(){
 				document.getElementById("successPopup").style.display = "none";
 			}, 2000);
+			document.getElementById("invalidcant").hidden = true;
 		}
       
         form.classList.add('was-validated')
 
     }, false);
 	// FIN VALIDAR FORM
+
+	//Deshabilitar campos banco
+	document.getElementById("creditcard").addEventListener("input", ()=>{
+		document.getElementById("nada").hidden = true;
+		document.getElementById("formabanco").hidden = true;
+		document.getElementById("formatarjeta").hidden = false;
+		numeroBanco.disabled = true;
+		numeroBanco.value = "";
+		numeroTarjeta.disabled = false;
+		codeTarjeta.disabled = false;
+		vencTarjeta.disabled = false;
+	});
+
+	//Deshabilitar campos tarjeta
+	document.getElementById("bank").addEventListener("input", ()=>{
+		document.getElementById("nada").hidden = true;
+		document.getElementById("formabanco").hidden = false;
+		document.getElementById("formatarjeta").hidden = true;
+		numeroBanco.disabled = false;
+		numeroTarjeta.disabled = true;
+		numeroTarjeta.value = "";
+		codeTarjeta.disabled = true;
+		codeTarjeta.value = "";
+		vencTarjeta.disabled = true;
+		vencTarjeta.value = "";
+	});
 });
 
