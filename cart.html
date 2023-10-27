@@ -72,48 +72,57 @@
       </table>
       <hr>
     </div>
+    <form id="form" method="get" class="needs-validation" novalidate>
     <div class="container justify-content-md-center">
       <div class="col">
         <div class="row">
           <h4 class="mt-5">Tipo de envío</h4>
           <div class="custom-control custom-radio">
-            <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" autocomplete="off">
+            <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" autocomplete="off" required>
             <label class="custom-control-label" for="premiumradio">Premium (2-5 días) - Costo del 15% sobre el
             subtotal</label>
           </div>
           <div class="custom-control custom-radio">
-            <input id="expressradio" name="publicationType" type="radio" class="custom-control-input" autocomplete="off">
+            <input id="expressradio" name="publicationType" type="radio" class="custom-control-input" autocomplete="off" required>
             <label class="custom-control-label" for="expressradio">Express (5-8 días) - Costo del 7% sobre el
             subtotal</label>
           </div>
           <div class="custom-control custom-radio">
-            <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" autocomplete="off">
+            <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" autocomplete="off" required>
             <label class="custom-control-label" for="standardradio">Standard (12-15 días) - Costo del 5% sobre el
-            subtotal</label>
+            subtotal</label>          
+            <div class="invalid-feedback">
+              Debe ingresar un tipo de envío.
+            </div>
           </div>
-          <div class="invalid-feedback" id="radioInvalid">Seleccione un tipo de envío</div>
         </div>
         <h4 class="mt-5">Dirección de envío</h4>
         <div class="row">
           <div class="form-group col-6">
             <label for="street">Calle</label>
-            <input type="text" class="form-control" id="street" autocomplete="off">
-            <div class="invalid-feedback" id="streetInvalid">Ingresa una calle</div>
+            <input type="text" class="form-control" id="street" autocomplete="off" required>
+            <div class="invalid-feedback">
+							Debe ingresar una calle.
+						</div>
           </div>
           <div class="form-group col-6">
             <label for="number">Número</label>
-            <input type="text" class="form-control" id="number" autocomplete="off">
-            <div class="invalid-feedback" id="numberInvalid">Ingresa un numero</div>
+            <input type="text" class="form-control" id="number" autocomplete="off" required>
+            <div class="invalid-feedback">
+							Debe ingresar un número de puerta.
+						</div>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-6">
             <label for="corner">Esquina</label>
-            <input type="text" class="form-control" id="corner" autocomplete="off">
-            <div class="invalid-feedback" id="cornerInvalid">Ingresa una esquina</div> <br>
+            <input type="text" class="form-control" id="corner" autocomplete="off" required>
+            <div class="invalid-feedback">
+							Debe ingresar una esquina.
+						</div>
           </div>
         </div>
-        <div class="container">
+        <div>
           <h4 class="mt-5">Costos</h4>
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -146,13 +155,16 @@
           <br> <hr>
         </div>
         
-        <button type="button" class="btn btn-dark btn-lg" onclick="validateForm()">comprar</button>
+        <div>
+          <button id="finish" type="submit" class="btn btn-primary" style="width: 100%;">Finalizar la compra</button>
+        </div>
 
         <div class="popup" id="successPopup">
           ¡Has comprado con éxito! 
         </div>
       </div>
     </div>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">
