@@ -68,42 +68,64 @@
 
 <!--     MAQUETADO DE PROFILE INFO -->
 
-<h2 style="text-align: center; margin: 5% 0 5% 0;">Perfil</h2>
+<div class="container" id="profile-picture">
+  <h1 id="titulo-perfil">Perfil</h1>
+    <div class="col-md-4 offset-md-8">
+      <img src="./img/avatar.png" id="img-perfil" id="avatar" alt="foto de perfil">
+  </div>
 
 <hr>
 
+<div id="campos">
 <div class="profileinfodiv">
   <div class="profitem">
   <label for="nombre">Primer Nombre</label>
-  <input type="text" id="profnombre" name="nombre">
+  <input type="text" class="form-control" id="profnombre" name="nombre">
 </div>
+
 
   <div class="profitem">
   <label for="segundonombre">Segundo Nombre</label>
-  <input type="text" id="profsegundonombre" name="segundonombre">
+  <input type="text" id="profsegundonombre" class="form-control" name="segundonombre">
 </div>
 
   <div class="profitem">
   <label for="apellido">Primer Apellido*</label>
-  <input type="text" id="profapellido" name="apellido">
+  <input type="text" id="profapellido" class="form-control"name="apellido">
 </div>
 
   <div class="profitem">
   <label for="segundoapellido">Segundo Apellido</label>
-  <input type="text" id="profsegundoapellido" name="segundoapellido">
+  <input type="text" id="profsegundoapellido" class="form-control" name="segundoapellido">
 </div>
 
   <div class="profitem">
   <label for="email">E-mail</label>
-  <input type="text" id="profemail" name="email">
+  <input type="text" id="profemail" class="form-control" name="email">
 </div>
 
   <div class="profitem">
   <label for="numerorelef">Telefono de Contacto</label>
-  <input type="text" id="profnumero" name="numerotelef">
+  <input type="text" id="profnumero" class="form-control" name="numerotelef">
 </div>
+
+  <div class="row">
+        <div id="upload-picture">
+            <label for="profile" class="form-label">Imagen de perfil</label>
+            <input id="subir-img" type="file" name="profile" class="form-control" style="width: 400px;">
+        </div>
+       
+  
+</div>
+
+</div>
+
 </div>
 <hr>
+
+<div class="container">
+  <button class="btn btn-primary" id="guardar-cambios">Guardar cambios</button>
+</div>
 <!--     FIN MAQUETADO -->
 
 

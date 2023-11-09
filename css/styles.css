@@ -426,3 +426,30 @@ body.dark{
     width: 300px;
   }
   }
+  
+
+#img-perfil{
+  margin-top: 2em;
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+#upload-picture{
+  float: right;
+  margin-bottom: 5em;
+
+}
+
+#titulo-perfil {
+  float: left;
+  margin-top: 2em;
+  margin-left: 8em;
+}
+
+#guardar-cambios {
+  margin-top: 5em;
+  margin-left: 21em;
+}
+
