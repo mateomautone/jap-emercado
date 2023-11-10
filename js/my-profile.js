@@ -42,3 +42,27 @@ file.addEventListener("change", e=>{
 });
 
 
+function savePersonalInfo() {
+    let personalInfo = {};
+    personalInfo.profnombre = document.getElementById("profnombre").value;
+    personalInfo.profsegundonombre = document.getElementById("profsegundonombre").value;
+    personalInfo.profapellido = document.getElementById("profapellido").value;
+    personalInfo.profsegundoapellido = document.getElementById("profsegundoapellido").value;
+    personalInfo.profemail = document.getElementById("profemail").value;
+    personalInfo.profnumero = document.getElementById("profnumero").value;
+
+    localStorage.setItem("profile", JSON.stringify(personalInfo));
+}
+
+function getSavedPersonalInfo() {
+    let personalInfo = JSON.parse(localStorage.getItem("profile"));
+    if (personalInfo != null) {
+        document.getElementById("profnombre").value = personalInfo.profnombre;
+        document.getElementById("profsegundonombre").value = personalInfo.profsegundonombre;
+        document.getElementById("profapellido").value = personalInfo.profapellido;
+        document.getElementById("profsegundoapellido").value = personalInfo.profsegundoapellido;
+        document.getElementById("profemail").value = personalInfo.profemail;
+        document.getElementById("profnumero").value = personalInfo.profnumero;
+    };
+}
+getSavedPersonalInfo();
