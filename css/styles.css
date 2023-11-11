@@ -399,6 +399,7 @@ h1 {
 body{
   background: #f5f0f0;
   color: #2e2d2d;
+  transition: .3s ease all;
 }
 body.dark{
   background: #2e2d2d;
